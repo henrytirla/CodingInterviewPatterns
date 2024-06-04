@@ -32,17 +32,3 @@ def test_palindrome():
 if __name__ == '__main__':
     test_palindrome()
 
-
-nums.sort()
-        for i in range(len(nums) - 2):
-            left = i + 1
-            right = len(nums) - 1
-            while left < right:
-                currentSum = nums[i] + nums[left] + nums[right]
-                if currentSum == target:
-                    return True
-                elif currentSum < target:
-                    left += 1
-                elif currentSum > target:
-                    right -= 1
-        return False
