@@ -17,7 +17,7 @@ class Solution:
                     return True
                 elif currentSum < target:
                     left += 1
-                elif currentSum > target:
+                else :
                     right -= 1
         return False
 
