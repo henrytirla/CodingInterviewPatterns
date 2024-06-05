@@ -6,7 +6,7 @@ Suppose we had an array [1, 3, 6, 7, 9], and let's say our "goal" number was 10.
 Our numbers to sum to it could be 3 and 7, 
 and we would return an array of indices 1 and 3 respectively."""
 
-import pytest
+
 
 # arr = [1, 3, 6, 7, 10]
 # targetSum = 10
@@ -37,10 +37,6 @@ def test_two_number_sum():
 
 
 if __name__ == '__main__':
-    # Running the main function to see the output
-    # print(twoNumberSum(arr, targetSum))
-
-    # Uncomment the next line to run the test function manually
     test_two_number_sum()
 
 
