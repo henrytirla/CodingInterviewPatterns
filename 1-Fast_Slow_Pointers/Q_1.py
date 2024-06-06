@@ -38,6 +38,7 @@ class Solution:
         while True:
             slow = sum([int(i) ** 2 for i in str(slow)])
             fast = sum([int(i) ** 2 for i in str(sum([int(i) ** 2 for i in str(fast)]))])
+            fast = sum([int(i) ** 2 for i in str(sum([int(i) ** 2 for i in str(fast)]))])
             if slow == fast:
                 break
         return slow == 1
@@ -52,7 +53,7 @@ def test_is_happy():
     assert sol.is_happy(23) == True
     assert sol.is_happy(12) == False
     assert sol.is_happy(19) == True
-    assert sol.is_happy(2) == False
+    assert sol.is_happy(2147483646) == False
 
 if __name__ == '__main__':
     test_is_happy()
