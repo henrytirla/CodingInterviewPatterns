@@ -1,12 +1,39 @@
+
+
 """
-Given a string, s, that represents a DNA subsequence, and a number 𝑘
-, return all the contiguous subsequences (substrings) of length k
- that occur more than once in the string. The order of the returned subsequences does not matter. If no repeated substring is found, the function should return an empty set.
+Maximum sum subarray of size K: Given an array of integers and a positive integer k,
+ find the maximum sum of any contiguous subarray of size k.
+ 
+ array= [4,2,-1,9,7,-3,5]
+"""
 
-The DNA sequence is composed of a series of nucleotides abbreviated as
-𝐴A, 𝐶C, 𝐺G, and 𝑇T
-. For example, 𝐴𝐶𝐺𝐴𝐴𝑇𝑇𝐶𝐶𝐺
-ACGAATTCCG
- is a DNA sequence. When studying DNA, it is useful to identify repeated sequences in it.
+class Solution:
+    def max_sum_subarray(self,array:list,k:int)->int:
+        window_sum= sum(array[:k])
+        max_sum = window_sum
+        for i in range(len(array)-k):
+            window_sum= window_sum-array[i]+ array[i+k]
+            max_sum = max(max_sum,window_sum)
+        return max_sum
 
- """
+
+
+
+
+
+def test_Max_subarray():
+    sol=Solution()
+
+    assert sol.max_sum_subarray([4,2,-1,9,7,-3,5],4) == 18
+    assert sol.max_sum_subarray([4,2,-2,0,9,0,2],4)!=4
+
+
+if __name__ == '__main__':
+    test_Max_subarray()
+
+
+
+
+
+
+
