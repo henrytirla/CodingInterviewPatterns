@@ -8,20 +8,17 @@ The order of the characters does not matter here.
 
 Note: If there are multiple valid minimum window substrings, return any one of them."""
 
-# def longest_substring(s:str,k:int)->int:
-#      n=len(s)
-#      start=0
-#      count={}
-#      max_count=0
-#      max_length=0
-#      for i in range(n):
-#          count[s[i]]= count.get(s[i],0)+1
-#          max_count= count[s[i]]
-#          if i-start+1 -max_count>k:
-#             count[s[start]]=-1
-#             start+=1
-#          max_length=max(i-start+1,max_count)
-#      return max_length
-#
-#
-# print(longest_substring('abab',2))
+
+class Solution:
+    def shortest_substring(self,s:str,t:str):
+        pass
+
+
+
+def test_shortest_substring():
+    sol=Solution()
+    assert sol.shortest_substring("ADOBECODEBANC","ABC")=="BANC"
+
+
+if __name__ == '__main__':
+    test_shortest_substring()
