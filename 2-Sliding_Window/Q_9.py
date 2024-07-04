@@ -9,7 +9,15 @@ If no profit can be achieved, we return zero.
 
 class Solution:
     def most_profitable(self,stock):
-        pass
+        max_profit=0
+        min_price=float("inf")
+
+
+        for price in stock:
+            min_price=min(min_price,price)
+            profit=price-min_price
+            max_profit=max(max_profit,profit)
+        return max_profit
 
 
 
@@ -18,6 +26,7 @@ def test_most_profitable():
     assert sol.most_profitable([7,1,5,3,6,4])==5
 
     assert sol.most_profitable([7,6,4,3,1])==0
+    assert sol.most_profitable([1,2,4,2,5,7,2,4,9,0,9])==9
 
 if __name__ == '__main__':
     test_most_profitable()
