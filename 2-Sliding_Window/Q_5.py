@@ -13,7 +13,9 @@ class Solution:
 
             count[s[i]] = count.get(s[i], 0) + 1
             max_count = max(max_count, count[s[i]])
-            if i - start + 1 - max_count > k:
+            current_length=i - start + 1
+
+            if (current_length - max_count )> k:
                 count[s[start]] -= 1
                 start += 1
             max_length = max(max_length, i - start + 1)
