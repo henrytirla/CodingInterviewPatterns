@@ -12,9 +12,9 @@ class Solution:
         inserted= False
 
         for inputs in existing_intervals:
-            if inputs[1] < new_interval[0]:
+            if inputs[1] < new_interval[0]: #This condition checks if the current interval ends before the new interval starts.
                 output_list.append(inputs)
-            elif inputs[0] > new_interval[1]:
+            elif inputs[0] > new_interval[1]: #This condition checks if the current interval starts after the new interval ends.
                  if not inserted:
                      output_list.append(new_interval)
                      inserted = True
