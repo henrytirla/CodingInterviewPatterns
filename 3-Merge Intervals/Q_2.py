@@ -4,3 +4,5 @@ into the correct position while ensuring that the resulting
  list of intervals remains sorted and nonoverlapping.
  Each interval is a pair of nonnegative numbers,
 the first being the start time and the second being the end time of the interval."""
+
+class Solution:
