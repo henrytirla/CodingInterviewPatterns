@@ -1,5 +1,37 @@
-""" This problem was asked by Facebook.
+""" Given an array of integers, return the indices of the two numbers
+in it that add up to a specific "goal" number.
 
-Given an array of numbers representing the stock prices of a company in chronological order and an integer k, return the maximum profit you can make from k buys and sells. You must buy the stock before you can sell it, and you must sell the stock before you can buy it again.
+Suppose we had an array [1, 3, 6, 7, 9], and let's say our "goal" number was 10.
+Our numbers to sum to it could be 3 and 7,
+and we would return an array of indices 1 and 3 respectively."""
 
-For example, given k = 2 and the array [5, 2, 4, 0, 1], you should return 3."""
+
+class Solution:
+    def twoNumberSum(self,arr,targetSum:int):
+        pointer_one = 0
+        pointer_right = len(arr)-1
+        while pointer_one < pointer_right:
+            currentSum = arr[pointer_one] + arr[pointer_right]
+            if currentSum == targetSum:
+                return arr[pointer_one], arr[pointer_right]
+            elif currentSum < targetSum:
+               pointer_one+=1
+            elif currentSum > targetSum:
+                pointer_right -=1
+        return []
+
+
+
+
+
+
+def test_two_number_sum():
+    sol=Solution()
+    assert sol.twoNumberSum([1, 3, 6, 7, 11], 10) == (3, 7)
+    assert sol.twoNumberSum([2, 7, 11, 15], 9) == (2, 7)
+    assert sol.twoNumberSum([2, 3, 5,7,11, 13], 14) == (3, 11)
+    assert sol.twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 20) == []
+
+if __name__ == '__main__':
+    test_two_number_sum()
+
