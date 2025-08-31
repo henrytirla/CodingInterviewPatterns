@@ -10,6 +10,7 @@ Example 2:
 Input: [-3, -1, 0, 1, 2]
 Output: [0 1 1 4 9]"""
 
+#(Sorted Array Target Sum)
 
 class Solution:
     def makeSquares(self, arr: list[int]) -> list[int]:
