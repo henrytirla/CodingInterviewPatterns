@@ -60,7 +60,6 @@ class Solution:
             current_area = width * current_height
             max_area = max(max_area, current_area)
 
-            # Move the pointer pointing to the shorter line
             if height[left_pointer] < height[right_pointer]:
                 left_pointer += 1
             else:
