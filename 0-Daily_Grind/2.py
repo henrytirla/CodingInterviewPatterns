@@ -1,6 +1,8 @@
 """Given an array of sorted numbers, remove all duplicates from it. You should not use any extra space;
 after removing the duplicates in-place return the new length of the array."""
 
+#(Sorted Array Target Sum)
+
 
 class Solution:
     def removeDuplicates(self, arr: list[int]) -> int:
