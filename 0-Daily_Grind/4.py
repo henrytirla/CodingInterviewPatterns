@@ -29,6 +29,23 @@ Hint1 : If you simulate the problem, it will be O(n^2) which is not efficient.
 Hint 2: Try to use two-pointers. Set one pointer to the left and one to the right of the array. Always move the pointer that points to the lower line.
 
 Hint 3: How can you calculate the amount of water at each step?
+
+
+
+Index:  0 1 2 3 4 5 6 7 8
+Height: 1 8 6 2 5 4 8 3 7
+
+Visual representation:
+8 |   █     █
+7 |   █     █   █
+6 |   █ █   █   █
+5 |   █ █ █ █   █
+4 |   █ █ █ █ █ █
+3 |   █ █ █ █ █ █ █
+2 |   █ █ █ █ █ █ █
+1 | █ █ █ █ █ █ █ █
+0 +─┴─┴─┴─┴─┴─┴─┴─┴─
+  0 1 2 3 4 5 6 7 8
 """
 
 class Solution:
