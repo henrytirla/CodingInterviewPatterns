@@ -1,3 +1,4 @@
+
 #(Sorted Array Target Sum)
 
 """You are given an integer array height of length n.
@@ -29,3 +30,39 @@ Hint 2: Try to use two-pointers. Set one pointer to the left and one to the righ
 
 Hint 3: How can you calculate the amount of water at each step?
 """
+
+class Solution:
+    def maxArea(self, height: list[int]) -> int:
+        left_pointer = 0
+        right_pointer = len(height) - 1
+        max_area = 0
+
+        while left_pointer < right_pointer:
+            width = right_pointer - left_pointer
+            current_height = min(height[left_pointer], height[right_pointer])
+            current_area = width * current_height
+            max_area = max(max_area, current_area)
+
+            # Move the pointer pointing to the shorter line
+            if height[left_pointer] < height[right_pointer]:
+                left_pointer += 1
+            else:
+                right_pointer -= 1
+
+        return max_area
+
+
+
+
+def test_maxArea():
+     sol = Solution()
+
+     # Testcases
+     assert sol.maxArea([1,8,6,2,5,4,8,3,7]) == 49
+     assert sol.maxArea([1,1]) == 1
+     assert sol.maxArea([4,3,2,1,4]) == 16
+     assert sol.maxArea([1,2,1]) == 2
+     assert sol.maxArea([3,1,2,4])== 9
+
+if __name__ == '__main__':
+    test_maxArea()
