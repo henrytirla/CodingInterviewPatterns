@@ -1,4 +1,6 @@
-"""Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+"""Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+
+such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
 Notice that the solution set must not contain duplicate triplets.
 
@@ -41,7 +43,11 @@ class Solution:
 
 
 def test_Sumthree():
-    pass
+    sol=Solution()
+    assert sol.Sumthree([-1,0,1,2,-1,-4]) == [[-1,-1,2],[-1,0,1]]
+    assert sol.Sumthree([0,1,1]) == []
+    assert sol.Sumthree([0,0,0]) == [[0,0,0]]
+
 
 
 
