@@ -30,3 +30,21 @@ Constraints:
 
 3 <= nums.length <= 3000
 -105 <= nums[i] <= 105"""
+
+#(Sorted Array Target Sum)
+
+class Solution:
+
+    def Sumthree(self,arr:list[int]):
+        pass
+
+
+
+def test_Sumthree():
+
+    pass
+
+
+
+if __name__ == '__main__':
+    test_Sumthree()
