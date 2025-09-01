@@ -38,7 +38,14 @@ Constraints:
 class Solution:
 
     def Sumthree(self,arr:list[int]):
-        pass
+        arr.sort()
+        target=0
+        i=1
+        j=len(arr)-1
+        result=[]
+        for k in range(len(arr)):
+
+
 
 
 
