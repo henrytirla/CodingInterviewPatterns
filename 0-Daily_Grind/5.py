@@ -54,10 +54,10 @@ class Solution:
                     result.append([arr[k], arr[i], arr[j]])
 
                     # Skip duplicate left values
-                    while i < j and arr[i] == arr[i + 1]:
+                    if arr[i] == arr[i + 1]:
                         i += 1
                     # Skip duplicate right values
-                    while i < j and arr[j] == arr[j - 1]:
+                    if arr[j] == arr[j - 1]:
                         j -= 1
 
                     i += 1
