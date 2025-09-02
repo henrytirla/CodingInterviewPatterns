@@ -36,26 +36,79 @@ Constraints:
 #(Sorted Array Target Sum)
 
 class Solution:
-
-    def Sumthree(self,arr:list[int]):
+    def Sumthree(self, arr: list[int]):
         arr.sort()
-        target=0
-        i=1
-        j=len(arr)-1
-        result=[]
-        for k in range(len(arr)):
+        result = []
+        for k in range(len(arr) - 2):
+            # Skip duplicate fixed elements
+            if k > 0 and arr[k] == arr[k - 1]:
+                continue
+
+            i = k + 1
+            j = len(arr) - 1
+
+            while i < j:
+                currentSum = arr[k] + arr[i] + arr[j]
+
+                if currentSum == 0:
+                    result.append([arr[k], arr[i], arr[j]])
+
+                    # Skip duplicate left values
+                    while i < j and arr[i] == arr[i + 1]:
+                        i += 1
+                    # Skip duplicate right values
+                    while i < j and arr[j] == arr[j - 1]:
+                        j -= 1
+
+                    i += 1
+                    j -= 1
+
+                elif currentSum < 0:
+                    i += 1
+                else:
+                    j -= 1
+
+        return result
 
 
 
 
 
-def test_Sumthree():
-    sol=Solution()
-    assert sol.Sumthree([-1,0,1,2,-1,-4]) == [[-1,-1,2],[-1,0,1]]
-    assert sol.Sumthree([0,1,1]) == []
-    assert sol.Sumthree([0,0,0]) == [[0,0,0]]
+
+def   test_Sumthree():
+    sol = Solution()
 
 
+    # Test 1: Basic case with multiple triplets
+    assert sol.Sumthree([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]]
+
+    # Test 2: Array with duplicates
+    assert sol.Sumthree([-2, 0, 0, 2, 2]) == [[-2, 0, 2]]
+
+    # Test 3: All zeros
+    assert sol.Sumthree([0, 0, 0]) == [[0, 0, 0]]
+
+    # Test 4: No valid triplets
+    assert sol.Sumthree([1, 2, 3]) == []
+
+    # Test 5: Minimum length array with solution
+    assert sol.Sumthree([-1, 0, 1]) == [[-1, 0, 1]]
+
+    # Test 6: Minimum length array with no solution
+    assert sol.Sumthree([1, 2, 3]) == []
+
+    # Test 7: Array with many duplicates
+    assert sol.Sumthree([-1, -1, -1, 0, 1, 2]) == [[-1, -1, 2], [-1, 0, 1]]
+    assert sol.Sumthree([-2,0,0,2,2]) == [[-2,0,2]]
+
+    # Test 8: Large numbers
+    assert sol.Sumthree([-4, -2, -1, 0, 3, 5]) == [[-4, -1, 5], [-2, -1, 3]]
+
+    # Test 9: Mix of positive and negative with duplicates
+    assert sol.Sumthree([-2, -1, -1, 1, 1, 2, 2]) == [[-2, 1, 1], [-1, -1, 2]]
+
+    # Test 10: Array with four zeros
+    assert sol.Sumthree([0, 0, 0, 0]) == [[0, 0, 0]]
 
 
 if __name__ == '__main__':
