@@ -9,16 +9,12 @@ and we would return an array of indices 1 and 3 respectively."""
 
 class Solution:
     def twoNumberSum(self,arr,targetSum:int):
-        pointer_one = 0
-        pointer_right = len(arr)-1
-        while pointer_one < pointer_right:
-            currentSum = arr[pointer_one] + arr[pointer_right]
-            if currentSum == targetSum:
-                return arr[pointer_one], arr[pointer_right]
-            elif currentSum < targetSum:
-               pointer_one+=1
-            elif currentSum > targetSum:
-                pointer_right -=1
+        seen={}
+        for i , num in enumerate(arr):
+            complement = targetSum - num
+            if complement in seen:
+                return (arr[complement], arr[num])
+            seen[num]=i
         return []
 
 
@@ -29,6 +25,7 @@ class Solution:
 def test_two_number_sum():
     sol=Solution()
     assert sol.twoNumberSum([1, 3, 6, 7, 11], 10) == (3, 7)
+    assert sol.twoNumberSum([3,2,4], 6) == (2,4)
     assert sol.twoNumberSum([2, 7, 11, 15], 9) == (2, 7)
     assert sol.twoNumberSum([2, 3, 5,7,11, 13], 14) == (3, 11)
     assert sol.twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 20) == []
