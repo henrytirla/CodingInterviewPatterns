@@ -27,3 +27,21 @@ Constraints:
 
 
 """
+
+class Solution:
+     def Four_sum(self,arr:list[int],target:int)->list[int]:
+         pass
+
+
+
+
+
+def test_Four_sum():
+    sol= Solution()
+    assert sol.Four_sum([1,0,-1,0,-2,2],0)==[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+    assert sol.Four_sum([2,2,2,2,2],8)==[[2,2,2,2]]
+    assert sol.Four_sum([1,2,3,4,5],50)==[]
+
+
+if __name__ == '__main__':
+    test_Four_sum()
