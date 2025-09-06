@@ -22,3 +22,21 @@ Constraints:
 
 
 """
+
+
+class Solution:
+    def intersection(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        set1 = set(nums1)
+        set2 = set(nums2)
+        return list(set1 & set2)
+
+
+
+def test():
+    sol = Solution()
+    assert sol.intersection([1, 2, 2, 1], [2, 2]) == [2]
+    assert sol.intersection([4, 9, 5], [9, 4, 9, 8, 4]) == [9, 4]
+    assert sol.intersection([1, 2, 3], [4, 5, 6]) == []
+
+if __name__ == '__main__':
+    test()
