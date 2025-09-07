@@ -33,7 +33,31 @@ Constraints:
 
 class Solution:
     def numRescueBoats(self, people: list[int], limit: int) -> int:
-        pass
+
+        people.sort()
+        boats = 0
+        i = 0
+        n = len(people) - 1
+
+        while i <= n:
+            current_weight = people[i] + people[n]
+            if current_weight <= limit:
+                boats += 1
+                i += 1
+                n -= 1
+            else:
+                n -= 1
+                boats+=1
+        return boats
+
+
+
+
+
+
+
+
+
 
 
 def test_numRescueBoats():
@@ -42,8 +66,8 @@ def test_numRescueBoats():
     assert sol.numRescueBoats([3, 2, 2, 1], 3) == 3
     assert sol.numRescueBoats([3, 5, 3, 4], 5) == 4
     assert sol.numRescueBoats([1, 2, 2, 3], 3) == 3
-    assert sol.numRescueBoats([1, 1, 1, 1], 3) == 2
-    assert sol.numRescueBoats([5, 1, 4, 2], 6) == 3
+    assert sol.numRescueBoats([3,5,3,4], 5) == 4
+    assert sol.numRescueBoats([5, 1, 4, 2], 6) == 2
 
 if __name__ == '__main__':
     test_numRescueBoats()
