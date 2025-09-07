@@ -29,3 +29,21 @@ Constraints:
 
 
 """
+
+
+class Solution:
+    def numRescueBoats(self, people: list[int], limit: int) -> int:
+        pass
+
+
+def test_numRescueBoats():
+    sol = Solution()
+    assert sol.numRescueBoats([1, 2], 3) == 1
+    assert sol.numRescueBoats([3, 2, 2, 1], 3) == 3
+    assert sol.numRescueBoats([3, 5, 3, 4], 5) == 4
+    assert sol.numRescueBoats([1, 2, 2, 3], 3) == 3
+    assert sol.numRescueBoats([1, 1, 1, 1], 3) == 2
+    assert sol.numRescueBoats([5, 1, 4, 2], 6) == 3
+
+if __name__ == '__main__':
+    test_numRescueBoats()
